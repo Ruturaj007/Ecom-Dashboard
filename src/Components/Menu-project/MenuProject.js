@@ -8,12 +8,10 @@ const AllInOne = () => {
   const [maincate, setMaincate] = useState([]);
   const [subcate, setSubcate] = useState([]);
 
-  const eventChange = (e,short_name) => {
+  const eventChange = (e, short_name) => {
     // e.preventDefault();
     setSubcate(short_name);
     console.log("value of subcate is " + subcate);
-
-   
   };
 
   useEffect(() => {
@@ -30,20 +28,23 @@ const AllInOne = () => {
 
   return (
     <div classNmae="float-container">
-      
       <h1 className="Mainmenu">Menu Categories</h1>
-      <ul className="float-child" >
-        {maincate.map((value,i) => (
-          <li key={i} style={{fontSize:`27px`,marginLeft:"20px"}}
-            onClick={(e)=>{eventChange(e,value.short_name)}}>
+      <ul className="float-child">
+        {maincate.map((value, i) => (
+          <li
+            key={i}
+            style={{ fontSize: `27px`, marginLeft: "20px" }}
+            onClick={(e) => {
+              eventChange(e, value.short_name);
+            }}
+          >
             {value.name}-({value.short_name})
             {/* =============>>>>>>>>>>>  why onClick={eventChange} is not working on event change when i write e.value.short_name   */}
           </li>
         ))}
       </ul>
-     
-      <Subcomponent data={subcate}/>
-      
+
+      <Subcomponent data={subcate} />
     </div>
   );
 };

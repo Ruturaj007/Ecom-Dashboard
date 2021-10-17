@@ -22,19 +22,28 @@ const ToDo = () => {
     }
     //setTheArray(oldArray => [...oldArray, newElement]);
   };
+  
+
+  // useEffect(() => {
+    
+  //   console.log("You are inside useEffect");
+  // }, [updat]);
+
   const upd = (e, v, i) => {
-      //  console.log("value is " + v +"Id is "+i);
-       setIsopen(!isopen);
-       console.log("The value of V is ==="+v);
-       console.log("The value of updat is =="+updat);
-       
-        const tempupd = [...addeverything];
-        tempupd.splice(i,1);
-         setAddeverything(tempupd);
-        setAddeverything((addeverything)=>[...addeverything,updat]);
-        
-        console.log("The value of add everything array is == "+addeverything);
-        console.log("the value of updat is =="+updat);
+    //  console.log("value is " + v +"Id is "+i);
+     setIsopen(!isopen);
+     console.log("The value of V is ==="+v);
+     console.log("The value of updat is =="+updat);
+     
+      const tempupd = [...addeverything];
+      tempupd.splice(i,1);
+       setAddeverything(tempupd);
+      setAddeverything((addeverything)=>[...addeverything,updat]);
+      
+      console.log("The value of add everything array is == "+addeverything);
+      console.log("the value of updat is =="+updat);
+  };
+  
        
       
       //  tempupd.splice(i,1);
@@ -51,7 +60,7 @@ const ToDo = () => {
     //   tem.join(updd)
     //   setUpdd(v);
     //   setIsopen(true);
-  };
+  
 
   const del = (e, i) => {
     console.log(i);

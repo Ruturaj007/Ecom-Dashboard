@@ -23,6 +23,13 @@
 .li{
   font-size: 40px;
   text-align: center;
+  border-bottom:1px solid black
+}
+.li:nth-child(even){
+  color:burlywood;
+}
+.li:nth-child(odd){
+  color:darkblue;
 }
 .float-container{
   /* border: 3px solid red; */
