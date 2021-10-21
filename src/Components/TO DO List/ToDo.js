@@ -1,131 +1,134 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, InputGroup, FormControl, Form } from "react-bootstrap";
-import FlipMove from "react-flip-move";
-// import {library} from "@fortawesome/fontawesome-svg-core"
-// import {faTrash} from "@fortawesome/free-solid-svg-icons"
-// import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-//  library.add(faTrash);
-
+import logo from "../TO DO List/logo.jpeg";
 const ToDo = () => {
   const [addinput, setAddinput] = useState([]);
   const [addeverything, setAddeverything] = useState([]);
-  const [updd, setUpdd] = useState([]);
-  const [isopen, setIsopen] = useState(false);
-  const [updat,setUpdat] = useState("");
-  //  const [theArray, setTheArray] = useState(initialArray);
+  const [updd, setUpdd] = useState([]); // new item ni value updd ma nakhi che
+  const [isopen, setIsopen] = useState(-1);
+  const [updat, setUpdat] = useState(""); // update na input box ma user type kre e aama jay
+
   const handlechange = (e) => {
     e.preventDefault();
-    if(addinput.text!==""){
-    setAddeverything((addeverything) => [...addeverything, addinput]);
-    console.log(addeverything);
-    setAddinput("");
+    if (!addinput) {
+      alert("Write something");
     }
-    //setTheArray(oldArray => [...oldArray, newElement]);
+    const allInput = {
+      id: new Date().getUTCMilliseconds().toString(),
+      name: addinput,
+    };
+    setAddeverything((addeverything) => [...addeverything, allInput]);
+    setAddinput("");
   };
-  
-
-  // useEffect(() => {
-    
-  //   console.log("You are inside useEffect");
-  // }, [updat]);
 
   const upd = (e, v, i) => {
-    //  console.log("value is " + v +"Id is "+i);
-     setIsopen(!isopen);
-     console.log("The value of V is ==="+v);
-     console.log("The value of updat is =="+updat);
-     
-      const tempupd = [...addeverything];
-      tempupd.splice(i,1);
-       setAddeverything(tempupd);
-      setAddeverything((addeverything)=>[...addeverything,updat]);
-      
-      console.log("The value of add everything array is == "+addeverything);
-      console.log("the value of updat is =="+updat);
-  };
-  
-       
-      
-      //  tempupd.splice(i,1);
-      // //  setAddeverything(tempupd);
-      //  setAddeverything((tempupd)=>[...tempupd,updat]);
-     
-       
-       
-      //  setAddeverything(tempupd);
-      //  setAddeverything((addeverything)=>[...addeverything,updat]);
-       
-       
+    if (updat) {
+      console.log("Inside If ==>" + isopen);
+      setAddeverything(
+        addeverything.map((elem) => {
+          if (elem.id === updd) {
+            return { ...elem, updat };
+          }
 
-    //   tem.join(updd)
-    //   setUpdd(v);
-    //   setIsopen(true);
-  
+          return elem;
+        })
+      );
+      setUpdat("");
+      setUpdd(null);
+      setIsopen(-1);
+    } else {
+      // when we haven't wrote anything in edit input box
+      if (isopen === i) {
+        console.log("inside Else =>> If " + isopen);
+        setIsopen(-1);
+      } else {
+        console.log("inside Else =>> Else " + isopen);
+        setUpdd(i);
+        setIsopen(i);
+      }
+    }
+  };
 
   const del = (e, i) => {
-    console.log(i);
-    const temp = [...addeverything];
-    console.log(i);
-    temp.splice(i, 1); // This means start from the index and delete only one data from the array
-    setAddeverything(temp);
-    console.log(addeverything);
+    const del = addeverything.filter((elem) => {
+      return elem.id !== i;
+    });
+    setAddeverything(del);
   };
+
+  const removeall = () => {
+    setAddeverything([]);
+  };
+
   return (
-    <div>
-      {/* <FlipMove duration={500} easing={"ease-in-out"}> */}
+    <div style={{ textAlign: "center" }}>
+      <figure>
+        <h1 className="todo"> To Do List</h1>
+        <img className="logo" src={logo} alt="Logo" />
+        <figcaption> Add your list below </figcaption>
+      </figure>
+
       <Form onSubmit={handlechange}>
         <InputGroup className="mb-3">
           <FormControl
+            className="firstinput"
             type="text"
             value={addinput}
-            placeholder="Enter Your ToDo List"
+            placeholder="Enter Your ToDo List 📁 "
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
             onChange={(e) => setAddinput(e.target.value)}
           />
-
           <Button
             variant="outline-secondary"
-            id="button-addon2"
+            className="fas fa-plus add-btn"
             onClick={handlechange}
           >
             Click Here
           </Button>
         </InputGroup>
       </Form>
-
       <ul className="ul">
-        {addeverything.map((value, i) => (
-          <li key={i} className="li">
-            <InputGroup className="list">
-              <InputGroup.Radio aria-label="Radio button for following text input" />
+        {addeverything.map((value) => (
+          <li key={value.id} className="li">
+            {value.name}
+            {isopen === value.id && (
+              <input
+                type="text"
+                // name={updat}
+                value={updat}
+                onChange={(e) => setUpdat(e.target.value)}
+              />
+            )}
+            <Button
+              className="updbtn fas fa-edit"
+              variant="warning"
+              onClick={(e) => {
+                upd(e, value.name, value.id);
+              }}
+            ></Button>
 
-              {value}
-              {/* <input type="text" onChange={(e) => setUpdd(e.target.value)} />  */}
-              {isopen===true?
-              <input type="text" onChange={(e)=>setUpdat(e.target.value)}/> 
-              :null}
-              <Button className="updbtn" variant="warning"
-                onClick={(e) => {
-                  upd(e, value, i);
-                }}
-              >
-                Update
-              </Button>
-              {/* <FontAwesomeIcon icon="fa-trash-can" className="faicons"/> */}
-              <Button  className="delbtn" variant="danger"
-                onClick={(e) => {
-                  del(e,i);
-                }}
-              >
-                {" "}
-                Delete{" "}
-              </Button>
-            </InputGroup>
+            <Button
+              className="delbtn fas fa-trash-alt"
+              variant="danger"
+              onClick={(e) => {
+                del(e, value.id);
+              }}
+            ></Button>
           </li>
         ))}
       </ul>
-      {/* </FlipMove> */}
+      <Button
+        className="remove fas fa-trash-alt"
+        style={{
+          backgroundColor: "#f44336",
+          marginTop: "30px",
+          fontSize: "20px",
+          padding: "10px 24px",
+        }}
+        data-sm-link-test="Remove All"
+        onClick={removeall}
+      ></Button>
     </div>
   );
 };

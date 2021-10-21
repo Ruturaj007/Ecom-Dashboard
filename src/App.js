@@ -7,17 +7,17 @@ import Products from "./Components/Products"
 import { BrowserRouter, Route } from "react-router-dom";
 import Updateproduct from "./Components/Updateproduct";
 import MenuProject from "./Components/Menu-project/MenuProject"
-import ToDo from "./Components/TO DO List/ToDo"
-import axios from 'axios';
-import PC from './Components/PC'
+ import ToDo from "./Components/TO DO List/ToDo"
 import Practise from './Components/Practise'
+ import To from "./Components/TO DO List/To"
+
 function App() {
   return (
     <div className="App">
-      {/* <PC/> */}
+     
       <BrowserRouter>
         <Header />
-        {/* <h1>React Ecom Dashboard</h1> */}
+       
         <br />
         <br />
         <br />
@@ -41,7 +41,8 @@ function App() {
         <Route path="/update">
           <Updateproduct />
         </Route>
-        <Route path="/TODO"><ToDo/></Route>
+         <Route path="/TODO"><ToDo/></Route> 
+         <Route path="/TO"><To /></Route> 
       </BrowserRouter>
     </div>
   );

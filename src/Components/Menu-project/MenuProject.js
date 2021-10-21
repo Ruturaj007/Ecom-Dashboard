@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Subcomponent from "./Subcomponent";
-import FlipMove from "react-flip-move";
+// import FlipMove from "react-flip-move";
 
 const AllInOne = () => {
   const [maincate, setMaincate] = useState([]);

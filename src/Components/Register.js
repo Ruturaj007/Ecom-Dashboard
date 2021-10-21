@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Button, InputGroup, FormControl, Form, Table } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, InputGroup, Form, Table } from "react-bootstrap";
 // import history from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
   const [email, setEmail] = useState("");
-  const [uid, setUid] = useState('');
-  const [final, setFinal] = useState([]);
+  const [uid, setUid] = useState("");
+  // const [final, setFinal] = useState([]);
   const [getf, setGetf] = useState([]);
   // const history=useHistory();
 
@@ -21,61 +21,32 @@ const Register = () => {
     axios
       .post(`https://jsonplaceholder.typicode.com/posts`, item)
       .then((response) => {
-        setFinal(response.data);
-        console.log(response.data);
+        // setFinal(response.data);
 
         axios
-        .get(`https://jsonplaceholder.typicode.com/posts`)
-        .then((response) => {
-          console.log(response.data);
-          setGetf(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-        
+          .get(`https://jsonplaceholder.typicode.com/posts`)
+          .then((response) => {
+            setGetf(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => console.log(error));
-
-    // axios
-    //   .get(`https://jsonplaceholder.typicode.com/posts`)
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     setGetf(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   };
-
-  //       const user ={
-  //           title,
-  //           body,
-  //           uid
-  //       }
-  // console.log(uid+title + body + email);
-  // history.push("/add");
-  // axios
-  // .post(
-  //   `https://react-course-b798e-default-rtdb.firebaseio.com/posts.json`,
-  //   user
-  // )
-  // .then((response) => {
-  //   onPostAdded();
-  // });
 
   return (
     <div className="col-sm-6 offset-sm-3">
       <h1> User Registration Page</h1>
       <br />
-      <Form onSubmit={submit} style={{textAlign:"center"}}>
+      <Form onSubmit={submit} style={{ textAlign: "center" }}>
         <InputGroup size="lg">
           <input
             className="form-control"
             type="text"
             value={uid}
             name="userId"
-            onChange={(e) => setUid(e.target.value)}  //setUid() -> {'uid':'abc'}     //uid -> {'uid':'abc'} name:kjbgk
+            onChange={(e) => setUid(e.target.value)} //setUid() -> {'uid':'abc'}     //uid -> {'uid':'abc'} name:kjbgk
             placeholder="User Id"
           />
         </InputGroup>
@@ -135,7 +106,7 @@ const Register = () => {
           />
         </InputGroup>
         <br />
-        <Button  type="submit"> Click here</Button>
+        <Button type="submit"> Click here</Button>
       </Form>
       <Table>
         <tbody>

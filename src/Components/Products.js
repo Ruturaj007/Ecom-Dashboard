@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Table,Button } from "react-bootstrap";
+import { Table} from "react-bootstrap";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [hide,setHide]=useState(true);
+  // const [hide,setHide]=useState(true);
   
   useEffect(() => {
     axios
@@ -58,30 +58,6 @@ const Products = () => {
       
       
 
-      {/* <Button onClick={()=>setHide(!hide)}> Hide / Show</Button>
-     {hide===true?
-      
-       products.map((data, i) => {
-        return(
-          
-          <div style={{color:Math.random()<0.5?"green":"red"}} key={i}> <hr/>
-            <h1>Id :=: {i}</h1>
-            <h1>Name:=: {data.name}</h1>
-            <h2>Username:=: {data.username}</h2>
-            <h3>Email:=:{data.email}</h3>
-          <div>
-           <h1> Street  :=: {data.address.street}</h1>
-                <h2> City  :=: {data.address.city}</h2>
-                <h3>  {data.address.suite}</h3>
-                <h4> Zipcode :=: {data.address.zipcode}</h4>
-                </div>
-              </div>
-            
-         
-
-        
-       ) }) 
-       :<div><br/><h1>"Data is hidden click button to see the results"</h1></div>} */}
 
         
 
