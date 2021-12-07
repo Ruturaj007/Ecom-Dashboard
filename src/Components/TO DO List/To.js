@@ -30,7 +30,7 @@ const To = () => {
   //here v is newdata's name and i is new data's id . Starting value of isopen is -1
 
   const upd = (e, v, i) => {
-    if (updat) {
+    if (v) {
       setAddeverything(
         addeverything.map((elem) => {
           if (elem.id === updateId) {
@@ -116,14 +116,14 @@ const To = () => {
                 onClick={(e) => {
                   upd(e, value.name, value.id);
                 }}
-              ></Button>
+              > Update </Button>
               <Button
                 className="delbtn fas fa-trash-alt"
                 variant="danger"
                 onClick={(e) => {
                   del(e, value.id);
                 }}
-              ></Button>
+              > Delete </Button>
             </li>
           ))}
         </ul>
@@ -137,7 +137,7 @@ const To = () => {
           }}
           data-sm-link-test="Remove All"
           onClick={removeall}
-        ></Button>
+        > Delete All</Button>
       </Form>
     </div>
   );
