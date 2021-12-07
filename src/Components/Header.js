@@ -16,8 +16,10 @@ const Header=()=>{
       <Link to="/products"> Show Products </Link>
       <Link to="/pra"> Practise.com</Link>
       <Link to="/MP"> Menu Project</Link>
-      <Link to="/TODO"> To-Do List</Link>
-       <Link to="/TO"> Todo Practice 📿 </Link> 
+      <Link to="/TODO"> To-Do Redux</Link>
+       <Link to="/TO"> Todo 📿 </Link> 
+       <Link to="/Too"> Todo Practice latest</Link>
+       <Link to="/HOC"> High Order Component</Link>
     </Nav>
     </Container>
   </Navbar>
