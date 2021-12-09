@@ -11,7 +11,6 @@ const AllInOne = () => {
   const eventChange = (e, short_name) => {
     // e.preventDefault();
     setSubcate(short_name);
-    console.log("value of subcate is " + subcate);
   };
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const AllInOne = () => {
   }, []);
 
   return (
-    <div classNmae="float-container">
+    <div className="float-container">
       <h1 className="Mainmenu">Menu Categories</h1>
       <ul className="float-child">
         {maincate.map((value, i) => (
@@ -39,7 +38,6 @@ const AllInOne = () => {
             }}
           >
             {value.name}-({value.short_name})
-            {/* =============>>>>>>>>>>>  why onClick={eventChange} is not working on event change when i write e.value.short_name   */}
           </li>
         ))}
       </ul>
