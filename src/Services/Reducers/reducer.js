@@ -27,7 +27,11 @@ const todoReducer = (state = initialData, action) => {
           ],
         };
       }
-      break;
+      else {
+        alert("Enter more than 2 words")
+        return {...state}
+      }
+       
 
     case EDIT:
       if (state.isOpen === -1) {

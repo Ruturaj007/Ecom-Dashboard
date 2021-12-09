@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { Button, InputGroup, FormControl,Form } from "react-bootstrap";
 import logo from "../TO DO List/logo.jpeg";
-
+import { BrowserRouter as Router, Link , Route } from "react-router-dom";
+import User from "./User"
 const ToDo = () => {
   const [addinput, setAddinput] = useState([]);
   const addeverything = useSelector((state) => state.todoReducer.addeverything); // To get all the data
@@ -18,6 +19,7 @@ const ToDo = () => {
 
   return (
     <div style={{ textAlign: "center" }}>
+      <Router>
       <figure>
         <h1 className="todo"> To Do List</h1>
         <img className="logo" src={logo} alt="Logo" />
@@ -50,8 +52,11 @@ const ToDo = () => {
         {addeverything.map((value) => {
           return (
             <li key={value.id} className="li">
+               <Link to={"/users/"+value.id+"/"+value.name}> {/*  We have added Link here and after clicking the link we will see id and name */}
               {/* Here it will take id from allInputData id and name as a value whatever is stored in addinput */}
-              {value.name}
+              {value.name} </Link>
+              
+              {/* {value.name} */}
               {isopen === value.id && (
                 <input
                   type="text"
@@ -76,6 +81,7 @@ const ToDo = () => {
             </li>
           );
         })}
+         <Route path={"/users/:id/:name"} ><User /></Route>
       </ul>
       <Button
         className="remove fas fa-trash-alt"
@@ -89,6 +95,7 @@ const ToDo = () => {
         onClick={() => dispatch(removeall())} 
       > Delete All</Button>
       </Form>
+      </Router>
     </div>
   );
 };

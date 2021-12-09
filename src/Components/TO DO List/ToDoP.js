@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { BrowserRouter as Router, Link , Route } from "react-router-dom";
+import User from "./User"
+
 const ToDoP = () => {
   const [input, setInput] = useState("");
   const [list, setList] = useState([]);
@@ -52,7 +55,6 @@ const ToDoP = () => {
       }
     }
   };
-  
 
   const del = (id) => {
     const newdellist = list.filter((elem) => {
@@ -62,6 +64,7 @@ const ToDoP = () => {
   };
   return (
     <div style={{ textAlign: "center" }}>
+      <Router>
       <div> {isopen} </div>
       <input
         type="text"
@@ -76,8 +79,9 @@ const ToDoP = () => {
         {list.map((value) => {
           return (
             <li key={value.id}>
-              {" "}
-              {value.name}
+              <Link to={"/users/"+value.id+"/"+value.name}> {/*  We have added Link here and after clicking the link we will see id and name */}
+              {value.name} </Link>
+              
               {isopen === value.id && (
                 <input
                   type="text"
@@ -99,8 +103,10 @@ const ToDoP = () => {
             </li>
           );
         })}
+        <Route path={"/users/:id/:name"} ><User /></Route>
       </ul>
-      ;
+      </Router>
+      
     </div>
   );
 };
