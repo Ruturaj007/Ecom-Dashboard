@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Subcomponent = (props) => {
+  console.log("Entire data" +props.data)
   const [subcate, setSubcate] = useState([]);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const Subcomponent = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, [props]);
+  }, [props]); // when we will get value from props then and then it will run 
 
   return (
     <div className="float-container">
