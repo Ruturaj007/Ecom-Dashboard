@@ -16,7 +16,7 @@ import Updateproduct from "./Components/Updateproduct";
 import MenuProject from "./Components/Menu-project/MenuProject";
 import ToDoP from "./Components/TO DO List/ToDoP";
 import Practise from "./Components/Practise";
-
+import RESET from "./Components/Reset"
 function App() {
   return (
     <div className="App">
@@ -60,6 +60,7 @@ function App() {
           <Hoc />
         </Route>
       </BrowserRouter>
+    <RESET />
     </div>
   );
 }
