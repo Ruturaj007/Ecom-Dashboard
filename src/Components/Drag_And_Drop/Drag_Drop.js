@@ -10,6 +10,9 @@ const DDAR = () => {
   // provided, snapshot is bunch of data that lets you bind all properties of Droppable with div inside it
   // ref={provided.innerRef()} will bind Droppable to div.
   // Draggable items to drag . It has id which is unique , key and index from data
+  //  {...provided.draggableProps} gives all the data so drag can happen
+  // DragHandleProps says that the div which it is wrapped around with is your drag handle . 
+  // So basically you can just grab the whole div and drag and drop
   return (
     <DragDropContext onDragEnd={myFunction}>
       <Droppable droppableId="AnyString">
