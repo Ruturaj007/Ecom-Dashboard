@@ -16,7 +16,8 @@ import Updateproduct from "./Components/Updateproduct";
 import MenuProject from "./Components/Menu-project/MenuProject";
 import ToDoP from "./Components/TO DO List/ToDoP";
 import Practise from "./Components/Practise";
-import RESET from "./Components/Reset"
+import DDAR from "./Components/Drag_And_Drop/Drag_Drop";
+
 function App() {
   return (
     <div className="App">
@@ -59,8 +60,10 @@ function App() {
         <Route path="/HOC">
           <Hoc />
         </Route>
+        <Route path="/DDR">
+          <DDAR />
+        </Route>
       </BrowserRouter>
-    <RESET />
     </div>
   );
 }
