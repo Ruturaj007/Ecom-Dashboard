@@ -63,6 +63,10 @@ function App() {
         <Route path="/DDR">
           <DDAR />
         </Route>
+        <Route
+          path="*" element={<main style={{padding:"1rem"}}>
+            <p> 404 PAGE .There is nothing to show</p> </main>
+            } />
       </BrowserRouter>
     </div>
   );
