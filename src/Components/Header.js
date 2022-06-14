@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 const Header=()=>{
     return(
         <div>
-            {/* <h1> You are inside Header page</h1> */}
             <Navbar bg="dark" variant="dark">
     <Container>
     <Navbar.Brand href="#home">Navbar</Navbar.Brand>

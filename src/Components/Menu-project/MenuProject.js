@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Subcomponent from "./Subcomponent";
 // import FlipMove from "react-flip-move";
 
-const AllInOne = () => {
+const MenuProject = () => {
   const [maincate, setMaincate] = useState([]);
   const [subcate, setSubcate] = useState([]);
 
@@ -46,4 +46,4 @@ const AllInOne = () => {
     </div>
   );
 };
-export default AllInOne;
+export default MenuProject;
