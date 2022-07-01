@@ -1,0 +1,40 @@
+{
+    "product":[
+        {
+            "id":1,
+            "name":"Samsung m40",
+            "color":"black",
+            "price":"15000",
+            "category":"mobile",
+            "brand":"Samsung",
+            "image":"https://i1.wp.com/www.chooseyourmobile.com/wp-content/uploads/2019/12/Samsung-galaxy-m40-all-color.jpg?fit=1280%2C853&ssl=1"
+        },
+        {
+            "id":2,
+            "name":"Apple m40",
+            "color":"white",
+            "price":"15000",
+            "category":"mobile",
+            "brand":"Apple",
+            "image":"https://openshop.uz/public/uploads/products/photos/202109/FvaVF02aL4SaaKNlpxijLYu1n6KVuNAB0HFGMtIP.jpg"
+        },
+        {
+            "id":3,
+            "name":"Apple Watch",
+            "color":"white",
+            "price":"90000",
+            "category":"Watch",
+            "brand":"Apple",
+            "image":"https://www.bhphotovideo.com/images/images2500x2500/apple_mtuq2ll_a_watch_series_4_gps_1434897.jpg"
+        },
+        {
+            "id":4,
+            "name":"Pixel 6 Pro",
+            "color":"white",
+            "price":"70000",
+            "category":"mobile",
+            "brand":"Google",
+            "image":"https://cdn.wccftech.com/wp-content/uploads/2021/05/Pixel-6-Pro-1480x833.jpg"
+        }
+    ]
+}
